@@ -3,7 +3,7 @@
 A dark, terminal-themed personal cybersecurity portfolio, built with pure **HTML + CSS + JavaScript**. No frameworks, no build step, no dependencies. Just drop `index.html` and it works.
 
 ## ⚡ Live Demo
-👉 [https://errorcode-14.github.io/Portfolio/](https://errorcode-14.github.io/Portfolio/)
+👉 [Portfolio](https://errorcode-14.github.io/Portfolio/)
 
 ---
 
