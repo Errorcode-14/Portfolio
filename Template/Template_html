@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#00ff41" />
+  <title>[YOUR NAME] // Cybersecurity Portfolio</title>
+  <meta name="description" content="[YOUR NAME] - Cybersecurity Specialist & Ethical Hacker." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a0a;
+      --card: #111111;
+      --matrix: #00ff41;
+      --cyber: #00ccff;
+      --body: #e0e0e0;
+      --muted: #888888;
+      --border: rgba(0,255,65,0.2);
+      --glow: 0 0 18px rgba(0,255,65,0.25);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--body);
+      font-family: 'JetBrains Mono', monospace;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* ── MATRIX RAIN FULL PAGE ── */
+    #matrix-bg {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.10;
+    }
+
+    /* everything above matrix */
+    nav, main, footer { position: relative; z-index: 1; }
+
+    /* ── SCROLLBAR ── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--matrix); border-radius: 3px; }
+
+    /* ── NAVBAR ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      background: rgba(10,10,10,0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2rem; height: 56px;
+      z-index: 100;
+    }
+    .nav-logo { color: var(--matrix); font-weight: 700; font-size: 0.9rem; text-decoration: none; }
+    .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.78rem; transition: color .2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--matrix); }
+    .nav-right { display: flex; align-items: center; gap: 1rem; font-size: 0.75rem; }
+    #live-clock { color: var(--cyber); }
+    .secure-badge {
+      display: flex; align-items: center; gap: 5px;
+      color: var(--matrix); font-size: 0.72rem;
+    }
+    .secure-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--matrix);
+      animation: pulseDot 1.6s ease-in-out infinite;
+    }
+    @keyframes pulseDot { 0%,100%{opacity:1} 50%{opacity:.2} }
+
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .hamburger span { display: block; width: 22px; height: 2px; background: var(--matrix); border-radius: 2px; transition: .3s; }
+
+    /* ── SECTIONS ── */
+    section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
+    .section-heading {
+      color: var(--matrix); font-size: 0.8rem; margin-bottom: 0.3rem; opacity: .7;
+    }
+    .section-title {
+      font-size: 1.8rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem;
+    }
+    .section-sub { color: var(--muted); font-size: 0.82rem; margin-bottom: 2.5rem; }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; padding-top: 56px; max-width: 100%;
+    }
+    .hero-avatar {
+      width: 110px; height: 110px; border-radius: 50%;
+      border: 2px solid var(--matrix);
+      background: var(--card);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.2rem; color: var(--matrix); font-weight: 700;
+      margin-bottom: 1rem;
+      box-shadow: var(--glow);
+    }
+    .hero-online {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: var(--matrix); font-size: 0.72rem; margin-bottom: 1rem;
+    }
+    .hero-name { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 700; color: #fff; margin-bottom: 0.6rem; }
+    .hero-role {
+      font-size: 1.1rem; color: var(--matrix); margin-bottom: 1rem; min-height: 1.6rem;
+    }
+    #typewriter-cursor { animation: blink 1s steps(2) infinite; }
+    @keyframes blink { 0%,49%{opacity:1} 50%,100%{opacity:0} }
+    .hero-tagline { color: var(--muted); font-size: 0.88rem; max-width: 520px; margin: 0 auto 2rem; line-height: 1.7; }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+    .btn {
+      padding: 0.6rem 1.4rem; border-radius: 4px; font-family: inherit;
+      font-size: 0.82rem; cursor: pointer; text-decoration: none;
+      transition: all .2s; display: inline-block;
+    }
+    .btn-primary { background: var(--matrix); color: #000; font-weight: 700; border: none; }
+    .btn-primary:hover { box-shadow: var(--glow); transform: translateY(-1px); }
+    .btn-outline { background: transparent; color: var(--matrix); border: 1px solid var(--matrix); }
+    .btn-outline:hover { background: rgba(0,255,65,.08); box-shadow: var(--glow); }
+
+    /* ── CARDS ── */
+    .card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 8px; padding: 1.4rem;
+      transition: box-shadow .2s, border-color .2s;
+    }
+    .card:hover { box-shadow: var(--glow); border-color: rgba(0,255,65,.5); }
+
+    /* ── GRID ── */
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.2rem; }
+    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; }
+
+    /* ── FEATURES ── */
+    .feature-icon { font-size: 1.6rem; margin-bottom: 0.7rem; }
+    .feature-title { color: var(--matrix); font-weight: 700; font-size: 0.9rem; margin-bottom: 0.4rem; }
+    .feature-desc { color: var(--muted); font-size: 0.8rem; line-height: 1.6; }
+
+    /* ── ABOUT ── */
+    .about-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 3rem; align-items: start; }
+    .about-avatar {
+      width: 140px; height: 140px; border-radius: 50%;
+      border: 2px solid var(--matrix); background: var(--card);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.5rem; color: var(--matrix); font-weight: 700;
+      box-shadow: var(--glow); margin-bottom: 1rem;
+    }
+    .about-name { font-size: 1.2rem; font-weight: 700; color: #fff; margin-bottom: 0.2rem; }
+    .about-title-text { color: var(--cyber); font-size: 0.78rem; margin-bottom: 1rem; }
+    .tag-pill {
+      display: inline-block; background: rgba(0,255,65,.08);
+      border: 1px solid var(--border); color: var(--matrix);
+      border-radius: 999px; padding: 2px 10px; font-size: 0.72rem; margin: 2px;
+    }
+    .about-bio { color: var(--muted); font-size: 0.83rem; line-height: 1.8; margin-bottom: 1.5rem; }
+    .stats-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 0.8rem; margin-bottom: 1.5rem; }
+    .stat-card { background: rgba(0,255,65,.05); border: 1px solid var(--border); border-radius: 6px; padding: 0.8rem; text-align: center; }
+    .stat-num { font-size: 1.5rem; font-weight: 700; color: var(--matrix); }
+    .stat-label { font-size: 0.7rem; color: var(--muted); margin-top: 2px; }
+
+    /* ── TIMELINE ── */
+    .timeline { position: relative; padding-left: 1.5rem; }
+    .timeline::before { content:''; position:absolute; left:6px; top:0; bottom:0; width:1px; background:var(--border); }
+    .timeline-item { position: relative; margin-bottom: 1.5rem; }
+    .timeline-dot { position:absolute; left:-1.5rem; top:4px; width:12px; height:12px; border-radius:50%; background:var(--matrix); border:2px solid var(--bg); box-shadow: 0 0 8px var(--matrix); }
+    .timeline-school { font-weight:700; color:#fff; font-size:0.85rem; }
+    .timeline-degree { color:var(--cyber); font-size:0.78rem; margin: 2px 0; }
+    .timeline-year { color:var(--muted); font-size:0.72rem; }
+    .timeline-score { color:var(--matrix); font-size:0.72rem; margin-top:2px; }
+
+    /* ── EXPERIENCE ── */
+    .exp-card { border-left: 3px solid var(--matrix); }
+    .exp-company { font-size:1rem; font-weight:700; color:var(--matrix); }
+    .exp-role { color:#fff; font-size:0.88rem; margin:2px 0; }
+    .exp-meta { color:var(--muted); font-size:0.75rem; margin-bottom:0.8rem; }
+    .exp-bullets { list-style:none; }
+    .exp-bullets li { color:var(--muted); font-size:0.8rem; line-height:1.7; }
+    .exp-bullets li::before { content:'▸ '; color:var(--matrix); }
+
+    /* ── FILTER TABS ── */
+    .filter-tabs { display:flex; flex-wrap:wrap; gap:0.5rem; margin-bottom:1.5rem; }
+    .filter-btn {
+      background:transparent; border:1px solid var(--border); color:var(--muted);
+      font-family:inherit; font-size:0.75rem; padding:4px 14px; border-radius:999px;
+      cursor:pointer; transition:all .2s;
+    }
+    .filter-btn.active, .filter-btn:hover { background:rgba(0,255,65,.1); color:var(--matrix); border-color:var(--matrix); }
+
+    /* ── PROJECT CARDS ── */
+    .proj-card { border-left: 3px solid var(--matrix); display:flex; flex-direction:column; }
+    .proj-badges { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:0.6rem; }
+    .badge {
+      font-size:0.65rem; padding:2px 8px; border-radius:999px; font-weight:700;
+    }
+    .badge-done { background:rgba(0,255,65,.12); color:var(--matrix); border:1px solid rgba(0,255,65,.3); }
+    .badge-wip { background:rgba(0,204,255,.1); color:var(--cyber); border:1px solid rgba(0,204,255,.3); }
+    .badge-feat { background:rgba(255,255,255,.05); color:var(--muted); border:1px solid rgba(255,255,255,.1); }
+    .proj-title { color:#fff; font-weight:700; font-size:0.9rem; margin-bottom:0.5rem; }
+    .proj-desc { color:var(--muted); font-size:0.78rem; line-height:1.6; flex:1; margin-bottom:0.8rem; }
+    .tech-tags { display:flex; flex-wrap:wrap; gap:4px; margin-bottom:0.8rem; }
+    .tech-tag { background:rgba(0,255,65,.06); border:1px solid var(--border); color:var(--matrix); font-size:0.65rem; padding:2px 7px; border-radius:4px; }
+    .proj-links { display:flex; gap:0.5rem; flex-wrap:wrap; }
+    .proj-link { font-size:0.72rem; color:var(--cyber); text-decoration:none; border:1px solid rgba(0,204,255,.3); padding:3px 10px; border-radius:4px; transition:all .2s; }
+    .proj-link:hover { background:rgba(0,204,255,.1); }
+
+    /* ── IN DEV PROGRESS ── */
+    .progress-wrap { margin-top:0.8rem; }
+    .progress-label { display:flex; justify-content:space-between; font-size:0.72rem; color:var(--muted); margin-bottom:4px; }
+    .progress-bar { height:4px; background:rgba(255,255,255,.08); border-radius:2px; overflow:hidden; }
+    .progress-fill { height:100%; background:var(--matrix); border-radius:2px; width:0; transition:width 1.2s ease; }
+
+    /* ── SKILLS ── */
+    .skill-category { margin-bottom:1.5rem; }
+    .skill-cat-header {
+      display:flex; align-items:center; justify-content:space-between;
+      cursor:pointer; padding:0.8rem 1rem; background:var(--card);
+      border:1px solid var(--border); border-radius:6px; margin-bottom:4px;
+      transition:border-color .2s;
+    }
+    .skill-cat-header:hover { border-color:rgba(0,255,65,.5); }
+    .skill-cat-title { color:#fff; font-size:0.85rem; font-weight:700; }
+    .skill-cat-count { color:var(--matrix); font-size:0.72rem; background:rgba(0,255,65,.08); padding:2px 8px; border-radius:999px; border:1px solid var(--border); }
+    .skill-chevron { color:var(--matrix); transition:transform .3s; font-size:0.8rem; }
+    .skill-groups { display:none; padding:0.8rem 0; }
+    .skill-groups.open { display:block; }
+    .skill-group { margin-bottom:1rem; }
+    .skill-group-title { color:var(--cyber); font-size:0.75rem; margin-bottom:0.5rem; }
+    .tool-pills { display:flex; flex-wrap:wrap; gap:6px; }
+    .tool-pill { background:rgba(0,255,65,.05); border:1px solid var(--border); color:var(--body); font-size:0.7rem; padding:3px 9px; border-radius:4px; }
+
+    /* ── TOOLS ── */
+    .tools-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; }
+    .tools-col-title { color:var(--matrix); font-size:0.78rem; margin-bottom:0.8rem; font-weight:700; }
+
+    /* ── CERTS ── */
+    .cert-card { display:flex; flex-direction:column; padding:0; overflow:hidden; }
+    .cert-preview {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 1.2rem 1rem;
+      display: flex; align-items: center; justify-content: space-between;
+      position: relative; min-height: 90px;
+    }
+    .cert-preview-left { display:flex; flex-direction:column; gap:4px; }
+    .cert-preview-issuer-logo { font-size:0.65rem; color:var(--cyber); font-weight:700; letter-spacing:1px; text-transform:uppercase; opacity:0.8; }
+    .cert-preview-presented { font-size:0.6rem; color:var(--muted); margin-bottom:2px; }
+    .cert-preview-name-big { font-size:0.95rem; font-weight:700; color:#fff; }
+    .cert-preview-title { font-size:0.72rem; color:var(--cyber); }
+    .cert-badge-wrap { position:relative; }
+    .cert-badge-icon { font-size:2.4rem; filter: drop-shadow(0 0 8px rgba(0,255,65,0.4)); }
+    .cert-featured-tag {
+      position:absolute; top:-8px; right:-8px;
+      background: var(--matrix); color:#000;
+      font-size:0.55rem; font-weight:700; padding:2px 6px; border-radius:4px;
+    }
+    .cert-body { padding:1rem; flex:1; display:flex; flex-direction:column; gap:6px; }
+    .cert-name { color:#fff; font-weight:700; font-size:0.85rem; }
+    .cert-meta-row { display:flex; align-items:center; gap:6px; color:var(--muted); font-size:0.72rem; }
+    .cert-meta-icon { color:var(--matrix); }
+    .cert-desc { color:var(--muted); font-size:0.72rem; line-height:1.5; margin-top:2px; flex:1; }
+    .cert-footer { display:flex; align-items:center; gap:8px; margin-top:0.8rem; padding-top:0.8rem; border-top:1px solid var(--border); }
+    .cert-status { font-size:0.68rem; padding:4px 10px; border-radius:999px; display:inline-flex; align-items:center; gap:4px; }
+    .cert-verified { background:rgba(0,255,65,.1); color:var(--matrix); border:1px solid rgba(0,255,65,.3); }
+    .cert-pursuing { background:rgba(0,204,255,.1); color:var(--cyber); border:1px solid rgba(0,204,255,.3); }
+    .cert-verify-btn {
+      display:inline-flex; align-items:center; gap:5px;
+      padding:4px 12px; font-size:0.7rem; font-family:inherit;
+      background:rgba(0,255,65,.12); color:var(--matrix);
+      border:1px solid rgba(0,255,65,.3); border-radius:4px;
+      text-decoration:none; transition:background .2s;
+    }
+    .cert-verify-btn:hover { background:rgba(0,255,65,.25); }
+
+    /* ── BLOGS ── */
+    .blog-card { display:flex; flex-direction:column; }
+    .blog-tags { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:0.5rem; }
+    .blog-tag { font-size:0.65rem; color:var(--cyber); border:1px solid rgba(0,204,255,.3); padding:2px 8px; border-radius:999px; }
+    .blog-title { color:#fff; font-weight:700; font-size:0.88rem; margin-bottom:0.4rem; line-height:1.4; }
+    .blog-excerpt { color:var(--muted); font-size:0.78rem; line-height:1.6; flex:1; margin-bottom:0.8rem; }
+    .blog-meta { color:var(--muted); font-size:0.7rem; margin-bottom:0.6rem; }
+    .blog-link { color:var(--matrix); font-size:0.75rem; text-decoration:none; }
+    .blog-link:hover { text-decoration:underline; }
+
+    /* ── CONTACT ── */
+    .contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:2rem; }
+    .contact-item { display:flex; align-items:center; gap:10px; margin-bottom:1rem; }
+    .contact-icon { color:var(--matrix); font-size:1rem; width:20px; }
+    .contact-label { color:var(--muted); font-size:0.72rem; }
+    .contact-value { color:#fff; font-size:0.82rem; }
+    .contact-value a { color:var(--cyber); text-decoration:none; }
+    .contact-value a:hover { text-decoration:underline; }
+    .pgp-note { background:rgba(0,255,65,.04); border:1px solid var(--border); border-radius:6px; padding:0.8rem; margin-top:1rem; color:var(--muted); font-size:0.75rem; line-height:1.6; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top:1px solid var(--border); text-align:center;
+      padding:1.5rem; color:var(--muted); font-size:0.75rem;
+    }
+    footer span { color:var(--matrix); }
+
+    /* ── FADE IN ── */
+    .fade-in { opacity:0; transform:translateY(24px); transition:opacity .6s ease, transform .6s ease; }
+    .fade-in.visible { opacity:1; transform:translateY(0); }
+
+    /* ── VIEW ALL BTN ── */
+    .view-all { text-align:center; margin-top:1.5rem; }
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:768px){
+      .nav-links { display:none; flex-direction:column; position:absolute; top:56px; left:0; right:0; background:rgba(10,10,10,.97); border-bottom:1px solid var(--border); padding:1rem 2rem; gap:1rem; }
+      .nav-links.open { display:flex; }
+      .hamburger { display:flex; }
+      .about-grid { grid-template-columns:1fr; }
+      .contact-grid { grid-template-columns:1fr; }
+      .tools-grid { grid-template-columns:1fr; }
+      section { padding:3rem 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- FULL PAGE MATRIX RAIN -->
+<canvas id="matrix-bg"></canvas>
+
+<!-- NAVBAR -->
+<nav>
+  <a href="#hero" class="nav-logo">./[YOUR_NAME].sh</a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#hero">Home</a></li>
+    <li><a href="#features">Features</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#certs">Certs</a></li>
+    <li><a href="#blogs">Blog</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <span id="live-clock"></span>
+    <div class="secure-badge"><div class="secure-dot"></div>SECURE</div>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<main>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-avatar">[YN]</div>
+  <div class="hero-online"><div class="secure-dot"></div>ONLINE</div>
+  <div class="hero-name">[YOUR NAME]</div>
+  <div class="hero-role">
+    I'm a <span id="typewriter" style="color:var(--matrix)"></span><span id="typewriter-cursor" style="color:var(--matrix)">_</span>
+  </div>
+  <p class="hero-tagline">Breaking systems ethically to build unbreakable security solutions.</p>
+  <div class="hero-btns">
+    <a href="#contact" class="btn btn-primary">Contact Me</a>
+    <a href="#projects" class="btn btn-outline">View My Work</a>
+    <a href="[YOUR RESUME URL]" class="btn btn-outline" target="_blank">View Resume</a>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features">
+  <div class="fade-in">
+    <div class="section-heading">~/features.sh</div>
+    <div class="section-title">What I Bring</div>
+    <div class="section-sub">Core capabilities I offer as a cybersecurity professional</div>
+    <div class="grid-3">
+      <div class="card">
+        <div class="feature-icon">🔍</div>
+        <div class="feature-title">Offensive Security</div>
+        <div class="feature-desc">Penetration testing across web, network, and cloud environments.</div>
+      </div>
+      <div class="card">
+        <div class="feature-icon">🛡️</div>
+        <div class="feature-title">Defensive Thinking</div>
+        <div class="feature-desc">Blue team skills: SIEM, log analysis, threat detection and response.</div>
+      </div>
+      <div class="card">
+        <div class="feature-icon">☁️</div>
+        <div class="feature-title">Cloud Security</div>
+        <div class="feature-desc">AWS security configs, IAM hardening, and cloud-native security practices.</div>
+      </div>
+      <div class="card">
+        <div class="feature-icon">🤖</div>
+        <div class="feature-title">AI-Powered Tools</div>
+        <div class="feature-desc">Building security automation pipelines with LLMs and Python workflows.</div>
+      </div>
+      <div class="card">
+        <div class="feature-icon">🏆</div>
+        <div class="feature-title">CTF Player</div>
+        <div class="feature-desc">Active competitive hacker sharpening real-world exploitation skills.</div>
+      </div>
+      <div class="card">
+        <div class="feature-icon">👥</div>
+        <div class="feature-title">Leadership</div>
+        <div class="feature-desc">Founded and led cybersecurity clubs and technical communities.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="fade-in">
+    <div class="section-heading">~/about.sh</div>
+    <div class="section-title">About Me</div>
+    <div class="section-sub">Building Secure Systems</div>
+    <div class="about-grid">
+      <div>
+        <div class="about-avatar">[YN]</div>
+        <div class="about-name">[YOUR NAME]</div>
+        <div class="about-title-text">Cybersecurity Specialist & Ethical Hacker</div>
+        <div>
+          <span class="tag-pill">Security</span>
+          <span class="tag-pill">Pentesting</span>
+          <span class="tag-pill">Cloud Security</span>
+          <span class="tag-pill">CTF Player</span>
+        </div>
+      </div>
+      <div>
+        <p class="about-bio">[YOUR BIO HERE — tell your story, how you got into cybersecurity, what drives you, and what you're building.]</p>
+        <div class="stats-grid">
+          <div class="stat-card"><div class="stat-num">2+</div><div class="stat-label">Certifications</div></div>
+          <div class="stat-card"><div class="stat-num">2+</div><div class="stat-label">Years Exp</div></div>
+          <div class="stat-card"><div class="stat-num">7+</div><div class="stat-label">Projects</div></div>
+          <div class="stat-card"><div class="stat-num">4</div><div class="stat-label">Leadership</div></div>
+        </div>
+        <!-- EDUCATION -->
+        <div style="margin-top:1.5rem;">
+          <div style="color:var(--cyber);font-size:0.78rem;margin-bottom:1rem;">Academic Journey</div>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-school">[UNIVERSITY NAME]</div>
+              <div class="timeline-degree">[DEGREE], [FIELD]</div>
+              <div class="timeline-year">[YEAR] - Present</div>
+              <div class="timeline-score">CGPA: [X.XX]</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-school">[JUNIOR COLLEGE NAME]</div>
+              <div class="timeline-degree">Intermediate</div>
+              <div class="timeline-year">[YEAR] - [YEAR]</div>
+              <div class="timeline-score">Score: [XX]%</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-school">[HIGH SCHOOL NAME]</div>
+              <div class="timeline-degree">Secondary School</div>
+              <div class="timeline-year">[YEAR] - [YEAR]</div>
+              <div class="timeline-score">GPA: [X.X]</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="fade-in">
+    <div class="section-heading">~/experience.sh</div>
+    <div class="section-title">Professional Experience</div>
+    <div class="section-sub">Career Journey</div>
+    <div class="card exp-card">
+      <div class="exp-company">[COMPANY NAME]</div>
+      <div class="exp-role">[YOUR ROLE]</div>
+      <div class="exp-meta">[START DATE] - Present &nbsp;·&nbsp; [Hybrid/Remote/Onsite] &nbsp;·&nbsp; [Department]</div>
+      <ul class="exp-bullets">
+        <li>[Responsibility or achievement placeholder one]</li>
+        <li>[Responsibility or achievement placeholder two]</li>
+        <li>[Responsibility or achievement placeholder three]</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="fade-in">
+    <div class="section-heading">~/projects.sh</div>
+    <div class="section-title">Featured Projects</div>
+    <div class="section-sub">A showcase of cybersecurity tools and applications</div>
+    <div class="filter-tabs" id="proj-filters">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="red">Red Teaming</button>
+      <button class="filter-btn" data-filter="blue">Blue Teaming</button>
+      <button class="filter-btn" data-filter="ai">AI Automation</button>
+      <button class="filter-btn" data-filter="vibe">Vibe Coding</button>
+      <button class="filter-btn" data-filter="cloud">Cloud & DevOps</button>
+    </div>
+    <div class="grid-3" id="projects-grid">
+      <div class="card proj-card" data-cat="red">
+        <div class="proj-badges"><span class="badge badge-done">Completed</span><span class="badge badge-feat">Featured</span></div>
+        <div class="proj-title">[PROJECT TITLE 1]</div>
+        <div class="proj-desc">[Project description placeholder — what it does, why you built it, what problem it solves.]</div>
+        <div class="tech-tags"><span class="tech-tag">Python</span><span class="tech-tag">OSINT</span><span class="tech-tag">[Tool]</span></div>
+        <div class="proj-links"><a href="#" class="proj-link">Overview</a><a href="#" class="proj-link">Code</a><a href="#" class="proj-link">Demo</a></div>
+      </div>
+      <div class="card proj-card" data-cat="blue">
+        <div class="proj-badges"><span class="badge badge-done">Completed</span><span class="badge badge-feat">Featured</span></div>
+        <div class="proj-title">[PROJECT TITLE 2]</div>
+        <div class="proj-desc">[Project description placeholder — what it does, why you built it, what problem it solves.]</div>
+        <div class="tech-tags"><span class="tech-tag">Python</span><span class="tech-tag">LLM</span><span class="tech-tag">[Tool]</span></div>
+        <div class="proj-links"><a href="#" class="proj-link">Overview</a><a href="#" class="proj-link">Code</a></div>
+      </div>
+      <div class="card proj-card" data-cat="ai">
+        <div class="proj-badges"><span class="badge badge-wip">In-progress</span><span class="badge badge-feat">Featured</span></div>
+        <div class="proj-title">[PROJECT TITLE 3]</div>
+        <div class="proj-desc">[Project description placeholder — what it does, why you built it, what problem it solves.]</div>
+        <div class="tech-tags"><span class="tech-tag">AI</span><span class="tech-tag">BERT</span><span class="tech-tag">[Tool]</span></div>
+        <div class="proj-links"><a href="#" class="proj-link">Overview</a><a href="#" class="proj-link">Demo</a></div>
+      </div>
+      <div class="card proj-card" data-cat="vibe">
+        <div class="proj-badges"><span class="badge badge-done">Completed</span><span class="badge badge-feat">Featured</span></div>
+        <div class="proj-title">[PROJECT TITLE 4]</div>
+        <div class="proj-desc">[Project description placeholder — what it does, why you built it, what problem it solves.]</div>
+        <div class="tech-tags"><span class="tech-tag">React</span><span class="tech-tag">TypeScript</span><span class="tech-tag">[Tool]</span></div>
+        <div class="proj-links"><a href="#" class="proj-link">Overview</a><a href="#" class="proj-link">Demo</a></div>
+      </div>
+      <div class="card proj-card" data-cat="cloud">
+        <div class="proj-badges"><span class="badge badge-done">Completed</span><span class="badge badge-feat">Featured</span></div>
+        <div class="proj-title">[PROJECT TITLE 5]</div>
+        <div class="proj-desc">[Project description placeholder — what it does, why you built it, what problem it solves.]</div>
+        <div class="tech-tags"><span class="tech-tag">AWS</span><span class="tech-tag">Docker</span><span class="tech-tag">[Tool]</span></div>
+        <div class="proj-links"><a href="#" class="proj-link">Overview</a><a href="#" class="proj-link">Code</a></div>
+      </div>
+      <div class="card proj-card" data-cat="ai">
+        <div class="proj-badges"><span class="badge badge-done">Completed</span><span class="badge badge-feat">Featured</span></div>
+        <div class="proj-title">[PROJECT TITLE 6]</div>
+        <div class="proj-desc">[Project description placeholder — what it does, why you built it, what problem it solves.]</div>
+        <div class="tech-tags"><span class="tech-tag">n8n</span><span class="tech-tag">API</span><span class="tech-tag">[Tool]</span></div>
+        <div class="proj-links"><a href="#" class="proj-link">Overview</a><a href="#" class="proj-link">Demo</a></div>
+      </div>
+    </div>
+    <div class="view-all"><a href="#" class="btn btn-outline">View All Projects →</a></div>
+  </div>
+</section>
+
+<!-- IN DEVELOPMENT -->
+<section id="indev">
+  <div class="fade-in">
+    <div class="section-heading">~/indev.sh</div>
+    <div class="section-title">In Development</div>
+    <div class="section-sub">Works in Progress</div>
+    <div class="grid-2">
+      <div class="card">
+        <div class="proj-badges"><span class="badge badge-wip">Blue Teaming</span></div>
+        <div class="proj-title">[IN-PROGRESS PROJECT 1]</div>
+        <div class="proj-desc">[Description of what you're currently building and its purpose.]</div>
+        <div class="progress-wrap">
+          <div class="progress-label"><span>Progress</span><span style="color:var(--matrix)">60% — Testing</span></div>
+          <div class="progress-bar"><div class="progress-fill" data-width="60"></div></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="proj-badges"><span class="badge badge-wip">Red Teaming</span></div>
+        <div class="proj-title">[IN-PROGRESS PROJECT 2]</div>
+        <div class="proj-desc">[Description of what you're currently building and its purpose.]</div>
+        <div class="progress-wrap">
+          <div class="progress-label"><span>Progress</span><span style="color:var(--matrix)">10% — Planning</span></div>
+          <div class="progress-bar"><div class="progress-fill" data-width="10"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="fade-in">
+    <div class="section-heading">~/skills.sh</div>
+    <div class="section-title">Skills & Expertise</div>
+    <div class="section-sub">A comprehensive toolkit for offensive and defensive security operations</div>
+
+    <div class="skill-category">
+      <div class="skill-cat-header" onclick="toggleSkill(this)">
+        <span class="skill-cat-title">Offensive Security & Pentesting</span>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span class="skill-cat-count">4 skill areas</span>
+          <span class="skill-chevron">▾</span>
+        </div>
+      </div>
+      <div class="skill-groups">
+        <div class="skill-group">
+          <div class="skill-group-title">Recon & Enumeration</div>
+          <div class="tool-pills">
+            <span class="tool-pill">Nmap</span><span class="tool-pill">Shodan</span><span class="tool-pill">theHarvester</span><span class="tool-pill">Maltego</span><span class="tool-pill">Sublist3r</span><span class="tool-pill">recon-ng</span><span class="tool-pill">whois</span><span class="tool-pill">dig</span><span class="tool-pill">WhatWeb</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-title">Vulnerability Scanning & Exploitation</div>
+          <div class="tool-pills">
+            <span class="tool-pill">Metasploit</span><span class="tool-pill">Burp Suite</span><span class="tool-pill">Nessus</span><span class="tool-pill">Nikto</span><span class="tool-pill">SQLMap</span><span class="tool-pill">Hydra</span><span class="tool-pill">John the Ripper</span><span class="tool-pill">ffuf</span><span class="tool-pill">wfuzz</span><span class="tool-pill">Dirsearch</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-title">Post-Exploitation & Reporting</div>
+          <div class="tool-pills">
+            <span class="tool-pill">Impacket</span><span class="tool-pill">Enum4linux</span><span class="tool-pill">Manual enumeration</span><span class="tool-pill">Markdown/HTML reporting</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-title">Red Team Basics</div>
+          <div class="tool-pills">
+            <span class="tool-pill">Payload creation</span><span class="tool-pill">Phishing simulations</span><span class="tool-pill">WAF detection</span><span class="tool-pill">Custom scripts</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="skill-category">
+      <div class="skill-cat-header" onclick="toggleSkill(this)">
+        <span class="skill-cat-title">Defensive Security & Blue Teaming</span>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span class="skill-cat-count">4 skill areas</span>
+          <span class="skill-chevron">▾</span>
+        </div>
+      </div>
+      <div class="skill-groups">
+        <div class="skill-group">
+          <div class="skill-group-title">SIEM & Monitoring</div>
+          <div class="tool-pills">
+            <span class="tool-pill">Splunk</span><span class="tool-pill">Elastic Stack (ELK)</span><span class="tool-pill">Wazuh</span><span class="tool-pill">IDS & Firewalls</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-title">Log Analysis</div>
+          <div class="tool-pills">
+            <span class="tool-pill">Wireshark</span><span class="tool-pill">Sysmon</span><span class="tool-pill">Event Logs</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-title">Threat Detection</div>
+          <div class="tool-pills">
+            <span class="tool-pill">MITRE ATT&CK mapping</span><span class="tool-pill">Rule-based detection</span><span class="tool-pill">Correlation</span><span class="tool-pill">Threat Intelligence</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-title">Response & Anomaly Detection</div>
+          <div class="tool-pills">
+            <span class="tool-pill">Python + log triggers</span><span class="tool-pill">ML-based anomaly models</span><span class="tool-pill">Basic SOAR</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="skill-category">
+      <div class="skill-cat-header" onclick="toggleSkill(this)">
+        <span class="skill-cat-title">Scripting, Automation & Dev Tools</span>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span class="skill-cat-count">3 skill areas</span>
+          <span class="skill-chevron">▾</span>
+        </div>
+      </div>
+      <div class="skill-groups">
+        <div class="skill-group">
+          <div class="skill-group-title">Languages</div>
+          <div class="tool-pills">
+            <span class="tool-pill">Python</span><span class="tool-pill">Bash</span><span class="tool-pill">JavaScript</span><span class="tool-pill">TypeScript</span><span class="tool-pill">Java</span><span class="tool-pill">SQL</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-title">Automation & APIs</div>
+          <div class="tool-pills">
+            <span class="tool-pill">n8n workflows</span><span class="tool-pill">Python scripting</span><span class="tool-pill">REST APIs</span><span class="tool-pill">Cronjobs</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-title">Version Control & Collaboration</div>
+          <div class="tool-pills">
+            <span class="tool-pill">Git</span><span class="tool-pill">GitHub</span><span class="tool-pill">Linux CLI</span><span class="tool-pill">VS Code</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="skill-category">
+      <div class="skill-cat-header" onclick="toggleSkill(this)">
+        <span class="skill-cat-title">Cloud & Infrastructure</span>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span class="skill-cat-count">3 skill areas</span>
+          <span class="skill-chevron">▾</span>
+        </div>
+      </div>
+      <div class="skill-groups">
+        <div class="skill-group">
+          <div class="skill-group-title">Cloud Platforms</div>
+          <div class="tool-pills">
+            <span class="tool-pill">AWS (S3, EC2, IAM, CloudFront, Amplify)</span><span class="tool-pill">Microsoft Azure</span><span class="tool-pill">Digital Ocean</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-title">Web Hosting & Security</div>
+          <div class="tool-pills">
+            <span class="tool-pill">NGINX</span><span class="tool-pill">HTTPS config</span><span class="tool-pill">Header hardening</span><span class="tool-pill">Rate-limiting</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-title">Containers & DevOps Basics</div>
+          <div class="tool-pills">
+            <span class="tool-pill">Docker</span><span class="tool-pill">GitHub Actions (CI/CD)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section id="tools">
+  <div class="fade-in">
+    <div class="section-heading">~/tools.sh</div>
+    <div class="section-title">Tools & Frameworks</div>
+    <div class="section-sub">Daily drivers</div>
+    <div class="tools-grid">
+      <div class="card">
+        <div class="tools-col-title">⚔️ Red Teaming</div>
+        <div class="tool-pills">
+          <span class="tool-pill">Metasploit</span><span class="tool-pill">Nmap</span><span class="tool-pill">Wireshark</span><span class="tool-pill">Burp Suite</span><span class="tool-pill">Hydra</span><span class="tool-pill">John the Ripper</span><span class="tool-pill">ffuf</span><span class="tool-pill">whois</span><span class="tool-pill">WAF</span><span class="tool-pill">Maltego</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="tools-col-title">🛡️ Blue Teaming</div>
+        <div class="tool-pills">
+          <span class="tool-pill">ELK Stack</span><span class="tool-pill">Splunk</span><span class="tool-pill">Wazuh</span><span class="tool-pill">MITRE ATT&CK</span><span class="tool-pill">Wireshark</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certs">
+  <div class="fade-in">
+    <div class="section-heading">~/certifications.sh</div>
+    <div class="section-title">Certifications</div>
+    <div class="section-sub">Verified credentials</div>
+    <div class="grid-3">
+
+      <!-- eJPT -->
+      <div class="card cert-card">
+        <div class="cert-preview">
+          <div class="cert-preview-left">
+            <div class="cert-preview-issuer-logo">INE Security</div>
+            <div class="cert-preview-presented">PROUDLY PRESENTED TO</div>
+            <div class="cert-preview-name-big">[YOUR NAME]</div>
+            <div class="cert-preview-title">Junior Penetration Tester</div>
+          </div>
+          <div class="cert-badge-wrap">
+            <div class="cert-badge-icon">🎖️</div>
+            <span class="cert-featured-tag">eJPT</span>
+          </div>
+        </div>
+        <div class="cert-body">
+          <div class="cert-name">eJPT [Junior Penetration Tester]</div>
+          <div class="cert-meta-row"><span class="cert-meta-icon">🏢</span> INE</div>
+          <div class="cert-meta-row"><span class="cert-meta-icon">📅</span> Issued: Aug 2025 · Expires: Aug 2028</div>
+          <div class="cert-meta-row"><span class="cert-meta-icon">🔑</span> Credential ID: 157173651</div>
+          <div class="cert-desc">INE Security's Junior Penetration Tester exam (eJPT) validates that the individual has the foundational skills required in penetration testing.</div>
+          <div class="cert-footer">
+            <span class="cert-status cert-verified">✓ Verified</span>
+            <a href="https://certs.ine.com/9a385ac3-d0fc-4a5c-a1e0-12aed2fe4b4a" target="_blank" rel="noopener noreferrer" class="cert-verify-btn">
+              Verify <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Google Cybersecurity -->
+      <div class="card cert-card">
+        <div class="cert-preview">
+          <div class="cert-preview-left">
+            <div class="cert-preview-issuer-logo">Google / Coursera</div>
+            <div class="cert-preview-presented">PROUDLY PRESENTED TO</div>
+            <div class="cert-preview-name-big">[YOUR NAME]</div>
+            <div class="cert-preview-title">Cybersecurity Certificate</div>
+          </div>
+          <div class="cert-badge-wrap">
+            <div class="cert-badge-icon">🛡️</div>
+            <span class="cert-featured-tag">GCYB</span>
+          </div>
+        </div>
+        <div class="cert-body">
+          <div class="cert-name">Google Cybersecurity</div>
+          <div class="cert-meta-row"><span class="cert-meta-icon">🏢</span> Google / Coursera</div>
+          <div class="cert-meta-row"><span class="cert-meta-icon">📅</span> Issued: [DATE]</div>
+          <div class="cert-meta-row"><span class="cert-meta-icon">🔑</span> Credential ID: [ID]</div>
+          <div class="cert-desc">Covers foundations of cybersecurity, network security, Linux, SQL, Python automation, and threat detection.</div>
+          <div class="cert-footer">
+            <span class="cert-status cert-verified">✓ Verified</span>
+            <a href="[GOOGLE CERT URL]" target="_blank" rel="noopener noreferrer" class="cert-verify-btn">
+              Verify <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- SecOps -->
+      <div class="card cert-card">
+        <div class="cert-preview">
+          <div class="cert-preview-left">
+            <div class="cert-preview-issuer-logo">SecOps Group</div>
+            <div class="cert-preview-presented">PROUDLY PRESENTED TO</div>
+            <div class="cert-preview-name-big">[YOUR NAME]</div>
+            <div class="cert-preview-title">Network Security Professional</div>
+          </div>
+          <div class="cert-badge-wrap">
+            <div class="cert-badge-icon">🔒</div>
+            <span class="cert-featured-tag">CNSP</span>
+          </div>
+        </div>
+        <div class="cert-body">
+          <div class="cert-name">Certified Network Security Professional</div>
+          <div class="cert-meta-row"><span class="cert-meta-icon">🏢</span> SecOps Group</div>
+          <div class="cert-meta-row"><span class="cert-meta-icon">📅</span> Issued: [DATE]</div>
+          <div class="cert-meta-row"><span class="cert-meta-icon">🔑</span> Credential ID: [ID]</div>
+          <div class="cert-desc">Validates skills in network security fundamentals, protocols, firewalls, IDS/IPS, and vulnerability assessment.</div>
+          <div class="cert-footer">
+            <span class="cert-status cert-verified">✓ Verified</span>
+            <a href="[SECOPS CERT URL]" target="_blank" rel="noopener noreferrer" class="cert-verify-btn">
+              Verify <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- INE Cloud -->
+      <div class="card cert-card">
+        <div class="cert-preview">
+          <div class="cert-preview-left">
+            <div class="cert-preview-issuer-logo">INE Security</div>
+            <div class="cert-preview-presented">PROUDLY PRESENTED TO</div>
+            <div class="cert-preview-name-big">[YOUR NAME]</div>
+            <div class="cert-preview-title">Certified Cloud Associate</div>
+          </div>
+          <div class="cert-badge-wrap">
+            <div class="cert-badge-icon">☁️</div>
+            <span class="cert-featured-tag">ICCA</span>
+          </div>
+        </div>
+        <div class="cert-body">
+          <div class="cert-name">INE Certified Cloud Associate</div>
+          <div class="cert-meta-row"><span class="cert-meta-icon">🏢</span> INE</div>
+          <div class="cert-meta-row"><span class="cert-meta-icon">📅</span> Issued: [DATE]</div>
+          <div class="cert-meta-row"><span class="cert-meta-icon">🔑</span> Credential ID: [ID]</div>
+          <div class="cert-desc">Validates foundational cloud computing skills including deployment, security, and infrastructure management.</div>
+          <div class="cert-footer">
+            <span class="cert-status cert-verified">✓ Verified</span>
+            <a href="[INE CLOUD CERT URL]" target="_blank" rel="noopener noreferrer" class="cert-verify-btn">
+              Verify <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tata -->
+      <div class="card cert-card">
+        <div class="cert-preview">
+          <div class="cert-preview-left">
+            <div class="cert-preview-issuer-logo">Tata Group</div>
+            <div class="cert-preview-presented">PROUDLY PRESENTED TO</div>
+            <div class="cert-preview-name-big">[YOUR NAME]</div>
+            <div class="cert-preview-title">Cybersecurity Analyst</div>
+          </div>
+          <div class="cert-badge-wrap">
+            <div class="cert-badge-icon">🏅</div>
+            <span class="cert-featured-tag">TATA</span>
+          </div>
+        </div>
+        <div class="cert-body">
+          <div class="cert-name">Cybersecurity Analyst</div>
+          <div class="cert-meta-row"><span class="cert-meta-icon">🏢</span> Tata</div>
+          <div class="cert-meta-row"><span class="cert-meta-icon">📅</span> Issued: [DATE]</div>
+          <div class="cert-meta-row"><span class="cert-meta-icon">🔑</span> Credential ID: [ID]</div>
+          <div class="cert-desc">Covers cybersecurity analysis, threat intelligence, incident response, and security operations fundamentals.</div>
+          <div class="cert-footer">
+            <span class="cert-status cert-verified">✓ Verified</span>
+            <a href="[TATA CERT URL]" target="_blank" rel="noopener noreferrer" class="cert-verify-btn">
+              Verify <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- BTL1 Pursuing -->
+      <div class="card cert-card">
+        <div class="cert-preview" style="background: linear-gradient(135deg, #1a1a1a 0%, #1a1a2e 100%);">
+          <div class="cert-preview-left">
+            <div class="cert-preview-issuer-logo">Security Blue Team</div>
+            <div class="cert-preview-presented">CURRENTLY PURSUING</div>
+            <div class="cert-preview-name-big">[YOUR NAME]</div>
+            <div class="cert-preview-title">Blue Team Level 1</div>
+          </div>
+          <div class="cert-badge-wrap">
+            <div class="cert-badge-icon">⏳</div>
+            <span class="cert-featured-tag" style="background:var(--cyber);color:#000;">BTL1</span>
+          </div>
+        </div>
+        <div class="cert-body">
+          <div class="cert-name">Blue Team Level 1 (BTL1)</div>
+          <div class="cert-meta-row"><span class="cert-meta-icon">🏢</span> Security Blue Team</div>
+          <div class="cert-meta-row"><span class="cert-meta-icon">📅</span> In Progress</div>
+          <div class="cert-desc">Covers SOC operations, phishing analysis, threat intelligence, digital forensics, SIEM, and incident response.</div>
+          <div class="cert-footer">
+            <span class="cert-status cert-pursuing">⟳ Pursuing</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- BLOGS -->
+<section id="blogs">
+  <div class="fade-in">
+    <div class="section-heading">~/blogs.sh</div>
+    <div class="section-title">Featured Blogs</div>
+    <div class="section-sub">Writeups, guides, and security insights</div>
+    <div class="grid-3">
+      <div class="card blog-card">
+        <div class="blog-tags"><span class="badge badge-feat">Featured</span><span class="blog-tag">cybersecurity</span></div>
+        <div class="blog-title">[BLOG TITLE 1]</div>
+        <div class="blog-excerpt">[Short excerpt or summary of the blog post goes here. Keep it 1–2 sentences.]</div>
+        <div class="blog-meta">[Date] · [X] min read</div>
+        <a href="#" class="blog-link">Read More →</a>
+      </div>
+      <div class="card blog-card">
+        <div class="blog-tags"><span class="badge badge-feat">Featured</span><span class="blog-tag">cybersecurity</span></div>
+        <div class="blog-title">[BLOG TITLE 2]</div>
+        <div class="blog-excerpt">[Short excerpt or summary of the blog post goes here. Keep it 1–2 sentences.]</div>
+        <div class="blog-meta">[Date] · [X] min read</div>
+        <a href="#" class="blog-link">Read More →</a>
+      </div>
+      <div class="card blog-card">
+        <div class="blog-tags"><span class="badge badge-feat">Featured</span><span class="blog-tag">linux</span></div>
+        <div class="blog-title">[BLOG TITLE 3]</div>
+        <div class="blog-excerpt">[Short excerpt or summary of the blog post goes here. Keep it 1–2 sentences.]</div>
+        <div class="blog-meta">[Date] · [X] min read</div>
+        <a href="#" class="blog-link">Read More →</a>
+      </div>
+      <div class="card blog-card">
+        <div class="blog-tags"><span class="badge badge-feat">Featured</span><span class="blog-tag">owasp</span></div>
+        <div class="blog-title">[BLOG TITLE 4]</div>
+        <div class="blog-excerpt">[Short excerpt or summary of the blog post goes here. Keep it 1–2 sentences.]</div>
+        <div class="blog-meta">[Date] · [X] min read</div>
+        <a href="#" class="blog-link">Read More →</a>
+      </div>
+      <div class="card blog-card">
+        <div class="blog-tags"><span class="badge badge-feat">Featured</span><span class="blog-tag">supply chain</span></div>
+        <div class="blog-title">[BLOG TITLE 5]</div>
+        <div class="blog-excerpt">[Short excerpt or summary of the blog post goes here. Keep it 1–2 sentences.]</div>
+        <div class="blog-meta">[Date] · [X] min read</div>
+        <a href="#" class="blog-link">Read More →</a>
+      </div>
+      <div class="card blog-card">
+        <div class="blog-tags"><span class="badge badge-feat">Featured</span><span class="blog-tag">story</span></div>
+        <div class="blog-title">[BLOG TITLE 6]</div>
+        <div class="blog-excerpt">[Short excerpt or summary of the blog post goes here. Keep it 1–2 sentences.]</div>
+        <div class="blog-meta">[Date] · [X] min read</div>
+        <a href="#" class="blog-link">Read More →</a>
+      </div>
+    </div>
+    <div class="view-all"><a href="#" class="btn btn-outline">Explore All Blogs →</a></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="fade-in">
+    <div class="section-heading">~/contact.sh</div>
+    <div class="section-title">Get In Touch</div>
+    <div class="section-sub">Have a project in mind? Let's connect and build something secure together</div>
+    <div class="contact-grid">
+      <div class="card">
+        <div style="color:var(--cyber);font-size:0.75rem;margin-bottom:1rem;">~/contact_info.sh</div>
+        <div class="contact-item">
+          <div class="contact-icon">✉</div>
+          <div><div class="contact-label">Email</div><div class="contact-value"><a href="mailto:[YOUR EMAIL]">[YOUR EMAIL]</a></div></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">⌥</div>
+          <div><div class="contact-label">GitHub</div><div class="contact-value"><a href="https://github.com/[YOUR GITHUB]" target="_blank">@[YOUR GITHUB]</a></div></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">in</div>
+          <div><div class="contact-label">LinkedIn</div><div class="contact-value"><a href="https://linkedin.com/in/[YOUR LINKEDIN]" target="_blank">[YOUR LINKEDIN]</a></div></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">✆</div>
+          <div><div class="contact-label">Phone</div><div class="contact-value">[YOUR PHONE]</div></div>
+        </div>
+        <div class="pgp-note">🔐 Secure Communication<br>For sensitive information, use encrypted channels. PGP key available upon request.</div>
+      </div>
+      <div class="card" style="display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:1rem;">
+        <div style="font-size:2rem;">🛡️</div>
+        <div style="color:#fff;font-size:1rem;font-weight:700;">Let's build something secure</div>
+        <div style="color:var(--muted);font-size:0.8rem;line-height:1.7;">Open to collaborations, freelance security work, CTF teams, and full-time opportunities.</div>
+        <a href="mailto:[YOUR EMAIL]" class="btn btn-primary">Send a Message</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p>© 2026 - <span>[YOUR NAME]</span> [PROTECTED]</p>
+</footer>
+
+<script>
+// ── MATRIX RAIN FULL PAGE ──
+(function(){
+  const canvas = document.getElementById('matrix-bg');
+  const ctx = canvas.getContext('2d');
+  let cols, drops;
+  const chars = 'アイウエオカキクケコサシスセソタチツテトナニヌネノABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()';
+  const fontSize = 14;
+
+  function resize(){
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    cols = Math.floor(canvas.width / fontSize);
+    drops = Array(cols).fill(1);
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  function draw(){
+    ctx.fillStyle = 'rgba(10,10,10,0.05)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = '#00ff41';
+    ctx.font = fontSize + 'px JetBrains Mono, monospace';
+    for(let i = 0; i < drops.length; i++){
+      const ch = chars[Math.floor(Math.random() * chars.length)];
+      ctx.fillText(ch, i * fontSize, drops[i] * fontSize);
+      if(drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+      drops[i]++;
+    }
+  }
+  setInterval(draw, 40);
+})();
+
+// ── LIVE CLOCK ──
+function updateClock(){
+  const now = new Date();
+  let h = now.getHours(), m = now.getMinutes(), s = now.getSeconds();
+  const ampm = h >= 12 ? 'PM' : 'AM';
+  h = h % 12 || 12;
+  document.getElementById('live-clock').textContent =
+    `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')} ${ampm}`;
+}
+updateClock();
+setInterval(updateClock, 1000);
+
+// ── TYPEWRITER ──
+(function(){
+  const roles = ['Cybersecurity Specialist','Ethical Hacker','Penetration Tester','Cloud Security Engineer','CTF Player'];
+  let ri = 0, ci = 0, deleting = false;
+  const el = document.getElementById('typewriter');
+  function tick(){
+    const word = roles[ri];
+    if(!deleting){
+      el.textContent = word.slice(0, ++ci);
+      if(ci === word.length){ deleting = true; setTimeout(tick, 1800); return; }
+    } else {
+      el.textContent = word.slice(0, --ci);
+      if(ci === 0){ deleting = false; ri = (ri+1) % roles.length; }
+    }
+    setTimeout(tick, deleting ? 50 : 90);
+  }
+  tick();
+})();
+
+// ── HAMBURGER ──
+document.getElementById('hamburger').addEventListener('click', function(){
+  document.getElementById('nav-links').classList.toggle('open');
+});
+
+// ── ACTIVE NAV ──
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', ()=>{
+  let cur = '';
+  sections.forEach(s => { if(window.scrollY >= s.offsetTop - 80) cur = s.id; });
+  navLinks.forEach(a => {
+    a.classList.toggle('active', a.getAttribute('href') === '#'+cur);
+  });
+});
+
+// ── FADE IN ON SCROLL ──
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// ── PROGRESS BARS ──
+const progObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting){
+      e.target.querySelectorAll('.progress-fill').forEach(bar => {
+        bar.style.width = bar.dataset.width + '%';
+      });
+    }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('#indev .card').forEach(c => progObs.observe(c));
+
+// ── SKILL TOGGLE ──
+function toggleSkill(header){
+  const groups = header.nextElementSibling;
+  const chevron = header.querySelector('.skill-chevron');
+  groups.classList.toggle('open');
+  chevron.style.transform = groups.classList.contains('open') ? 'rotate(180deg)' : '';
+}
+
+// ── PROJECT FILTER ──
+document.querySelectorAll('#proj-filters .filter-btn').forEach(btn => {
+  btn.addEventListener('click', function(){
+    document.querySelectorAll('#proj-filters .filter-btn').forEach(b => b.classList.remove('active'));
+    this.classList.add('active');
+    const filter = this.dataset.filter;
+    document.querySelectorAll('#projects-grid .proj-card').forEach(card => {
+      card.style.display = (filter === 'all' || card.dataset.cat === filter) ? 'flex' : 'none';
+    });
+  });
+});
+</script>
+</body>
+</html>
