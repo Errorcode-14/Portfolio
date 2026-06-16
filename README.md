@@ -1,6 +1,6 @@
 # 🛡️ Cybersecurity Portfolio
 
-A dark, terminal-themed personal cybersecurity portfolio — built with pure **HTML + CSS + JavaScript**. No frameworks, no build step, no dependencies. Just drop `index.html` and it works.
+A dark, terminal-themed personal cybersecurity portfolio, built with pure **HTML + CSS + JavaScript**. No frameworks, no build step, no dependencies. Just drop `index.html` and it works.
 
 ## ⚡ Live Demo
 👉 [https://errorcode-14.github.io/Portfolio/](https://errorcode-14.github.io/Portfolio/)
@@ -19,7 +19,8 @@ No build step. No npm. No config. Just push and it's live.
 
 ## ✏️ Customize
 
-All content is in a single file: `Template.html`
+All content is in a single file: `Template/Template_html`
+Change file name to `Template.html`
 
 | What | Where |
 |---|---|
