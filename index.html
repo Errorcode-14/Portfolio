@@ -1,3 +1,4 @@
+/* containts sorted things that are needed only */
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -334,6 +335,16 @@
     .view-all { text-align:center; margin-top:1.5rem; }
 
     /* ── RESPONSIVE ── */
+    .about-avatar {
+      width: 140px; height: 140px; border-radius: 50%;
+      border: 2px solid var(--matrix); background: var(--card);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.5rem; color: var(--matrix); font-weight: 700;
+      box-shadow: var(--glow); margin-bottom: 1rem; overflow: hidden;
+    }
+    .about-avatar img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+    .stats-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 0.8rem; margin-bottom: 1.5rem; }
+
     @media(max-width:768px){
       .nav-links { display:none; flex-direction:column; position:absolute; top:56px; left:0; right:0; background:rgba(10,10,10,.97); border-bottom:1px solid var(--border); padding:1rem 2rem; gap:1rem; }
       .nav-links.open { display:flex; }
@@ -342,18 +353,7 @@
       .contact-grid { grid-template-columns:1fr; }
       .tools-grid { grid-template-columns:1fr; }
       section { padding:3rem 1.2rem; }
-      .stats-grid { grid-template-columns: repeat(2,1fr);
-      .about-top { margin-bottom: 1.5rem; }
-      .about-top-left {
-      display: flex; flex-direction: column; align-items: center;
-      text-align: center; gap: 0.5rem; margin-bottom: 1.5rem;
-    }
-    .about-avatar {
-      width: 110px; height: 110px; border-radius: 50%;
-      border: 2px solid var(--matrix); background: var(--card);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 2rem; color: var(--matrix); font-weight: 700;
-      box-shadow: var(--glow); overflow: hidden; flex-shrink: 0;
+      .stats-grid { grid-template-columns: repeat(2,1fr); }
     }
     .about-avatar img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
     .about-name { font-size: 1.2rem; font-weight: 700; color: #fff; margin-bottom: 0.2rem; }
@@ -396,10 +396,9 @@
 <!-- HERO -->
 <section id="hero">
   <div class="hero-avatar">
-  <img src="https://media.licdn.com/dms/image/v2/D4E03AQErQgDwqmfcLQ/profile-displayphoto-crop_800_800/B4EZqRbPguIwAI-/0/1763376430676?e=1782950400&v=beta&t=jvd5CaD5ZVXVTWzANNV9-JHPnqIWu-Bor1CLtSDDacE"
-    	alt="Profile Photo"
-	    onerror="this.parentElement.innerHTML='YN';">
-       
+    <img src="https://media.licdn.com/dms/image/v2/D4E03AQErQgDwqmfcLQ/profile-displayphoto-crop_800_800/B4EZqRbPguIwAI-/0/1763376430676?e=1782950400&v=beta&t=jvd5CaD5ZVXVTWzANNV9-JHPnqIWu-Bor1CLtSDDacE"
+       alt="Profile Photo"
+       onerror="this.parentElement.innerHTML='YN';">
   </div>
   <div class="hero-online"><div class="secure-dot"></div>ONLINE</div>
   <div class="hero-name">T Mayank Singh</div>
