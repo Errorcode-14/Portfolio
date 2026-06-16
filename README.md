@@ -85,7 +85,8 @@ Change file name to `Template.html`
 
 ## 📄 License
 
-MIT — free to use, modify, and share. Credit appreciated but not required.
+MIT 
+free to use, modify, and share. Credit appreciated but not required.
 
 ---
 
