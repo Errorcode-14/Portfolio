@@ -1,44 +1,91 @@
-# Cybersecurity Portfolio
+# 🛡️ Cybersecurity Portfolio
 
-A dark, terminal-themed single-page cybersecurity portfolio built with **React + TypeScript + Tailwind CSS + Framer Motion** (Vite). Static, no backend, deployable to GitHub Pages.
+A dark, terminal-themed personal cybersecurity portfolio — built with pure **HTML + CSS + JavaScript**. No frameworks, no build step, no dependencies. Just drop `index.html` and it works.
 
-## Features
+## ⚡ Live Demo
+👉 [https://errorcode-14.github.io/Portfolio/](https://errorcode-14.github.io/Portfolio/)
 
-- Matrix-green / cyber-blue terminal theme, monospace throughout
-- Live clock + pulsing `SECURE` badge in the navbar, active-section highlight
-- Hero with matrix-rain canvas, cycling typewriter roles, blinking cursor
-- Sections: Features, About + Education, Experience, Projects (filterable), In Development (animated progress bars), Skills (expandable groups), Tools, Certifications, Blogs, Contact (info only)
-- Scroll-triggered fade-ins, hover glow on cards
-- Fully responsive with a mobile hamburger menu
-- No contact form (contact info only)
+---
 
-## Local development
+## 🚀 Deploy to GitHub Pages (Zero Setup)
 
-```bash
-npm install
-npm run dev
-```
+1. Fork or clone this repo
+2. Go to **Settings → Pages → Source → Deploy from branch → main → / (root)**
+3. That's it. Your site is live at `https://YOUR-USERNAME.github.io/REPO-NAME/`
 
-Build and preview the production bundle:
+No build step. No npm. No config. Just push and it's live.
 
-```bash
-npm run build
-npm run preview
-```
+---
 
-## Customize
+## ✏️ Customize
 
-All content lives in **`src/data.ts`** and a few `index.html` meta tags. Replace every bracketed placeholder (`[YOUR NAME]`, `[YOUR EMAIL]`, `[PROJECT TITLE]`, `[Tool 1]`, etc.) with your own details. No component edits are required for basic content changes.
+All content is in a single file: `Template.html`
 
-## Deploy to GitHub Pages
+| What | Where |
+|---|---|
+| Your name | Search `[YOUR NAME]` |
+| Your photo | Search `[YOUR PHOTO URL]` |
+| Your bio | Search `[YOUR BIO HERE]` |
+| Resume link | Search `[YOUR RESUME URL]` |
+| Email | Search `[YOUR EMAIL]` |
+| GitHub | Search `[YOUR GITHUB]` |
+| LinkedIn | Search `[YOUR LINKEDIN]` |
+| Phone | Search `[YOUR PHONE]` |
+| Projects | Search `[PROJECT TITLE]` |
+| Blog posts | Search `[BLOG TITLE]` |
+| Cert verify links | Search `[CERT URL]` |
+| School logos | Search `[UNIVERSITY LOGO URL]` |
+| Typewriter roles | Search `const roles = [` in the script |
 
-1. Push this repo to GitHub.
-2. The Vite `base` in `vite.config.ts` is set to `'/portfolio/'` for a project site served at `https://<username>.github.io/portfolio/`.
-   - If you rename the repo, change `base` to `'/<new-repo-name>/'`.
-   - For a user site (`<username>.github.io`) or a custom domain, set `base` to `'/'`.
-3. In GitHub: **Settings > Pages > Source > GitHub Actions**.
-4. The workflow in `.github/workflows/deploy.yml` runs `npm ci && npm run build` and publishes `dist/` automatically on every push to `main`.
+---
 
-## Notes
+## 🧩 Sections
 
-- The contact form was intentionally removed; the contact section shows info only. If you later want working submissions on a static host, use a client-side service such as Formspree or Web3Forms.
+- **Hero** — animated typewriter, matrix rain, avatar
+- **Features** — 6 capability cards
+- **About** — bio, stats, education timeline
+- **Experience** — work history
+- **Projects** — filterable project cards with status badges
+- **In Development** — WIP projects with animated progress bars
+- **Skills** — expandable skill groups with tool pills
+- **Tools** — red team / blue team daily drivers
+- **Certifications** — cards with verify links
+- **Blogs** — featured writeups grid
+- **Contact** — contact info with PGP note
+
+---
+
+## ✨ Features
+
+- 🟩 Full-page matrix rain animation (behind all sections)
+- ⌚ Live clock + pulsing SECURE badge in navbar
+- ⌨️ Typewriter hero with cycling roles
+- 🔽 Expandable skill category groups
+- 📊 Scroll-triggered animated progress bars
+- 🔍 Project filter tabs by category
+- 📱 Fully responsive with hamburger menu
+- 🔗 Cert verify buttons with external link icons
+- 🖼️ Image support for avatar, school logos, cert badges
+- ⚡ Zero dependencies — single HTML file
+
+---
+
+## 🛠️ Tech
+
+| Layer | Choice |
+|---|---|
+| Structure | HTML5 |
+| Styling | CSS3 (custom properties, grid, flexbox) |
+| Animation | Vanilla JS + Canvas API |
+| Fonts | JetBrains Mono (Google Fonts) |
+| Hosting | GitHub Pages |
+
+---
+
+## 📄 License
+
+MIT — free to use, modify, and share. Credit appreciated but not required.
+
+---
+
+> Built with 🖤 and a hacker mindset.
